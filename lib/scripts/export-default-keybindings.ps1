@@ -1,7 +1,7 @@
 # 导出本仓库（HBuilderV / VS Code）的官方默认键位，供与插件 package.json 比对。
 #
 # 用法（在仓库根目录先执行 npm run build-fast）:
-#   powershell -ExecutionPolicy Bypass -File extensions\hbuilderx-keymap\lib\scripts\export-default-keybindings.ps1
+#   powershell -ExecutionPolicy Bypass -File extensions\hbuilderx-keybindings\lib\scripts\export-default-keybindings.ps1
 #
 # 输出: lib\default-keybindings\doc.keybindings.{win,osx,linux}.json
 # 说明: 导出期间会临时把本插件 package.json 改名，避免插件自身键位污染导出结果。

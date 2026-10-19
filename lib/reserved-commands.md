@@ -5,7 +5,7 @@
 ## 当前处理方式
 
 - 这些命令在 VS Code 核心以及当前版本的 HBuilderV 中均未注册，写明键位只会空转消费按键，因此不纳入插件。
-- 源数据仍保留在 [hbuilderx-keymap.json](./hbuilderx-keymap.json)。
+- 源数据仍保留在 [hbuilderx-key.json](./hbuilderx-key.json)。
 - 后续 VS Code 或 HBuilderV 注册了同名命令后，可从源数据恢复对应键位。
 - 如果之后在 VS Code 中找到了语义等价的命令，可直接在 `package.json` 中增加对应键位，并从此清单中移除。
 
