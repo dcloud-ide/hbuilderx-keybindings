@@ -5,6 +5,7 @@
 - "命令名称有变化"：HBuilderX 命令与 VS Code 命令不同，进行了映射（部分为语义近似的映射）。
 - "命令名称相同"：key.json 中的命令 ID 在 VS Code 中已存在，直接沿用。
 - 条目的 `when` 条件与 VS Code 默认对齐：命令在 VS Code 默认键位中存在的，直接采用官方默认条目的 `when`（如 `ctrl+k` 格式化、`alt+/` 触发建议等）；仅 HBuilderX 独有映射的命令才按 VS Code 标准上下文键改写（如 `debugState=='paused'` → `debugState == 'stopped'`、`isRunning` → `inDebugMode`、`activeEditor.readonly` → `editorReadonly` 等），不引用 HBuilderX 私有上下文键。
+- macOS 键位来自 `hbuilderx-key-mac.json`，写入各条目的 `mac` 字段；HBuilderX mac 版未定义默认键位的 5 条（`ctrl+q`、`ctrl+alt+j`、`alt+j`、`alt+k`、`alt+\`）附加 `!isMac` 条件，在 macOS 上禁用。
 - 个别条目通过命令参数或 `insertSnippet` 模拟实现映射：`ctrl+shift+f` → `editor.actions.findWithArgs`（`args: { "findInSelection": true }`，打开查找并限定在选区内）；`ctrl+b` 加粗 → `editor.action.insertSnippet`（markdown 中包裹 `**`，html/vue 中包裹 `<b>`）。
 - VS Code 无对应实现、未纳入本插件的 24 条见 [reserved-commands.md](./reserved-commands.md)。
 

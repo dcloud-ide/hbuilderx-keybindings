@@ -4,7 +4,8 @@
 
 | 路径 | 说明 |
 | --- | --- |
-| `hbuilderx-key.json` | HBuilderX 官方 key.json 原始数据，本插件的移植来源 |
+| `hbuilderx-key.json` | HBuilderX 官方 key.json 原始数据（Windows 版），本插件的移植来源 |
+| `hbuilderx-key-mac.json` | HBuilderX 官方 key.json 原始数据（macOS 版），插件 `mac` 字段键位的来源 |
 | `mapped-commands.md` | 当前实际注册的键位清单 + 与 VS Code 默认相同未注册的键位清单 |
 | `reserved-commands.md` | VS Code/HBuilderV 均无实现、未纳入插件的 HBuilderX 专属命令 |
 | `default-keybindings/` | 官方默认键位导出（win / osx / linux 三份），由脚本生成 |

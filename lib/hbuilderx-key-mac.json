@@ -1,0 +1,725 @@
+[
+    //*--------左侧是默认快捷键设置，右侧是自定义设置。右侧设置会覆盖左侧设置--------*//
+    //*--------自定义快捷键和默认快捷键冲突时会弹出选择菜单。也可在右侧设置添加 'override':true 参数来强制覆盖默认设置--------*//
+    //*--------支持连续快捷键，例如'key':'cltr+1 2'--------*//
+
+
+    ///*
+    // # HBuilderX的快捷键理念
+    // HBuilderX的快捷键原则是：不定义记不住的快捷键
+    // 过去的很多工具都提供了太多abcd的快捷键，完全记不住
+    // HBuilderX在定义每个快捷键时都经过了考量，记住如下原则，就可掌握大部分快捷键
+    // 1. 尽可能保持与OS、浏览器接近
+    // 如标签卡管理，与浏览器完全相同，command+t新建标签卡、command+shift+t恢复刚关闭的标签卡、command+w关闭标签卡、command+alt+left/right切换标签卡
+    // 对于习惯eclipse体系command+t寻找文件的用户，需记得寻找文件的快捷键已经调整为command+p
+    // 2. 界面快捷键都与Ctrl相关
+    // 你可以把键盘方位当做屏幕，q为左上角字母，那么Ctrl+q为显示/关闭左侧的项目管理器
+    // q旁边的w是文档结构图(大纲)，即Ctrl+w为显示/关闭文档结构图
+    // 右上角字母是p，即Ctrl+p显示/关闭右侧的预览
+    // Ctrl+n为置焦编辑器
+    // Ctrl+x（底部字母）为显示/关闭控制台
+    // Ctrl+c（底部字母）为显示/关闭终端
+    // Ctrl+数字，是切换相应位置的标签卡，比如Ctrl+1是转到第一个标签卡
+    // Ctrl+[是在各种括号之间跳转
+    // Ctrl+d是转到定义（F12也可以），shift+Ctrl+d或shift+F12则是分栏转到定义
+    //
+    // 3. command是操作、command+shift是反操作或更多操作、command+alt为更多操作
+    // command+k是格式化，那么command+shift+k就是合并为一行
+    // command+w是关闭当前标签卡，那么command+shift+w是关闭所有标签卡
+    // command+f是搜索，command+alt+f是目录内搜索
+    // 4. 符号化而不是单词字母化
+    // 包围的英文是surround，但从这个单词里选一个字母配合command等键定为快捷键是很难记住的。command+]是包围，command+shift+]是反包围，这样好记多了
+    // command+shift+|是给选中行每行设置光标，“|”就是光标的样子，很形象
+    // 5. 强化和鼠标的配合，更易用
+    // alt+鼠标滚轮是横向滚动
+    // alt+鼠标单击是转到定义
+    // alt+鼠标拖动是列选择
+    // command+鼠标单击是添加多光标
+    // 鼠标双击可以智能选中，详见选择菜单
+    // 6. 老HBuilder用户需注意的常见快捷键差异
+    // 寻找文件从command+t改为command+p
+    // 格式化从command+shift+f改为command+k
+    // 合并行从command+j改为command+shift+k
+    // 删除行从command+d改为ctrl+d。command+d让给了选择相同词
+    // ctrl+d为删除当前行
+    // 7. sublime用户需注意常见快捷键差异
+    //
+    // 重复行内容的快捷键是command+shift+r
+    // 打开控制台不是command+~而是ctrl+x
+    // 合并行不是command+j而是command+shift+k
+    // 在每行行首设置光标不是command+shift+l而是command+shift+\\ 
+    // 选择括号内容不是command+shift+m而是command+[
+    // command+]是加包围。除了包围tag还支持包围if等函数块。同时提供command+shift+]为反包围
+    // 调缩进是tab或shift+tab，不是command+[和]
+    // 选择tag、相同缩进，可以双击tag首尾或缩进符号，不用背快捷键
+    // 扩大选区是command+=，更易用
+    // 复制行或选区是command+shift+r而不是command+shift+d
+    // 当然在右上角，你也可以点击下拉菜单，切换其他工具的快捷键方案
+    //*/
+
+    //--------项目管理器--------
+    //重命名文件（焦点在项目管理器中）
+    {"key":"f2","command":"renameFile"},
+    //剪切文件（焦点在项目管理器中）
+    {"key":"command+x","command":"filesExplorer.cut"},
+    //复制文件（焦点在项目管理器中）
+    {"key":"command+c","command":"filesExplorer.copy"},
+    //粘贴文件（焦点在项目管理器中）
+    {"key":"command+v","command":"filesExplorer.paste"},
+    //删除文件（焦点在项目管理器中）
+    // {"key":"delete","command":"moveFileToTrash"},
+
+    //--------标签卡--------
+    //新建标签卡（默认md）
+    {"key":"command+t","command":"workbench.action.files.newUntitledFile"},
+    //关闭当前标签卡
+    {"key":"command+w","command":"workbench.action.closeActiveEditor"},
+    //{"key":"ctrl+f4","command":"workbench.action.closeActiveEditor"},
+    //关闭当前标签卡，不询问是否保存
+    // {"key":"ctrl+f4","command":"workbench.action.closeActiveEditorNoConfirm"},
+    //关闭所有标签卡
+    {"key":"command+shift+w","command":"workbench.action.closeAllEditors"},
+    //
+    //关闭其他文件
+    // {"key":"ctrl+q","command":"workbench.action.closeOtherEditors"},
+    //关闭右侧标签卡
+    // {"key":"","command":"workbench.action.closeRightEditor"},
+    //关闭所有已保存标签卡
+    // {"key":"","command":"workbench.action.closeAllSavedEditors"},
+    //显示左边的标签卡
+    {"key":"command+PgUp","command":"workbench.action.leftTab"},
+    //
+    //显示右边的标签卡
+    {"key":"command+PgDown","command":"workbench.action.rightTab"},
+    //
+    //复制标签卡到分栏
+    {"key":"","command":"workbench.action.copyEditor"},
+    //重开已关闭标签卡
+    {"key":"command+shift+t","command":"workbench.action.reopenClosedEditor"},
+    //切换最近的标签卡alt+tab，该快捷键无法自定义
+    //切换到第1个标签卡
+    {"key":"command+1","command":"workbench.action.openEditorAtIndex1"},
+    //切换到第2个标签卡
+    {"key":"command+2","command":"workbench.action.openEditorAtIndex2"},
+    //切换到第3个标签卡
+    {"key":"command+3","command":"workbench.action.openEditorAtIndex3"},
+    //切换到第4个标签卡
+    {"key":"command+4","command":"workbench.action.openEditorAtIndex4"},
+    //切换到第5个标签卡
+    {"key":"command+5","command":"workbench.action.openEditorAtIndex5"},
+    //切换到第6个标签卡
+    {"key":"command+6","command":"workbench.action.openEditorAtIndex6"},
+    //切换到第7个标签卡
+    {"key":"command+7","command":"workbench.action.openEditorAtIndex7"},
+    //切换到第8个标签卡
+    {"key":"command+8","command":"workbench.action.openEditorAtIndex8"},
+    //切换到第9个标签卡
+    {"key":"command+9","command":"workbench.action.openEditorAtIndex9"},
+    //切换到最末尾的标签卡
+    {"key":"command+0","command":"workbench.action.openEditorAtIndex0"},
+    //往左移动一个标签卡
+    { "key": "command+shift+PgUp",  "command": "workbench.action.moveEditorLeftInGroup" },
+    //往右移动一个标签卡
+    { "key": "command+shift+PgDown", "command": "workbench.action.moveEditorRightInGroup" },
+
+    //--------文件--------
+    //新建
+    {"key":"command+n","command":"workbench.action.menu.new"},
+    //打开外部文件
+    {"key":"command+o","command":"workbench.action.files.openFile"},
+    //打开收藏菜单
+    {"key":"alt+shift+f","command": "workbench.action.fav.menu"},
+    //保存
+    {"key":"command+s","command":"workbench.action.files.save"},
+    //另存为
+    {"key":"command+shift+s","command":"workbench.action.files.saveAs"},
+    //全部保存
+    {"key":"command+alt+s","command":"workbench.action.files.saveAll"},
+    //打开文件所在目录
+    //{"key":"","command":"revealFileInOS"},
+    //在命令行打开文件所在目录
+    //{"key":"","command":"revealFileInTerminal"},
+    //打开文件夹导入项目
+    //{"key":"","command":"workbench.action.files.openFolder"},
+    //退出。建议使用command+q
+    //{"key":"","command":"app.action.quit"},
+
+    //--------行操作--------
+    //向下插入行
+    {"key":"command+enter","command":"editor.action.insertLineAfter"},
+    //
+    //向下插入行
+    {"key":"command+return","command":"editor.action.insertLineAfter"},
+    //
+    //向上插入行
+    {"key":"command+shift+enter","command":"editor.action.insertLineBefore"},
+    //向上插入行
+    {"key":"command+shift+return","command":"editor.action.insertLineBefore"},
+    //反回车，即把光标前内容移到下一行
+    {"key":"shift+enter","command":"editor.action.shiftEnter"},
+    //反回车，即把光标前内容移到下一行
+    {"key":"shift+return","command":"editor.action.shiftEnter"},
+    //上移一行
+    {"key":"command+ctrl+up","command":"editor.action.moveLinesUpAction"},
+    //
+    //下移一行
+    {"key":"command+ctrl+down","command":"editor.action.moveLinesDownAction"},
+    //
+
+    //--------删除--------
+    //向左删除
+    {"key":"backspace","command":"deleteLeft"},
+    {"key":"ctrl+h","command":"deleteLeft"},
+    //
+    //
+    //向右删除
+    {"key":"delete","command":"deleteRight"},
+    //{"key":"ctrl+d","command":"deleteRight"},
+    //
+    //向左删除词
+    {"key":"alt+backspace","command":"deleteWordLeft"},
+    //向右删除词
+    {"key":"alt+delete","command":"deleteWordRight"},
+    //向左删除驼峰词
+    {"key":"ctrl+alt+backspace","command":"deleteWordPartLeft"},
+    //向右删除驼峰词
+    {"key":"ctrl+alt+delete","command":"deleteWordPartRight"},
+    //删到行首
+    {"key":"command+backspace","command":"deleteLineLeft"},
+    //删到行尾
+    {"key":"command+delete","command":"deleteLineRight"},
+    {"key":"ctrl+k", "command": "deleteLineRight"},
+    //删除行
+    {"key":"ctrl+d","command":"editor.action.deleteLines"},
+    {"key":"ctrl+shift+k","command":"editor.action.deleteLines"},
+    //删除行尾空白字符
+    //{"key":"","command":"editor.action.triggerDeleteLineEndSpace"},
+
+    //--------列表符操作--------
+    //插入-无序列表符
+    {"key":"ctrl+alt+-","command":"editor.action.unOrderListSymbolsByMinus"},
+    //插入*无序列表符
+    {"key":"ctrl+alt+8","command":"editor.action.unOrderListSymbolsByMultiply"},
+    //插入+无序列表符
+    {"key":"ctrl+alt+=","command":"editor.action.unOrderListSymbolsByPlus"},
+    //插入>引用列表符
+    {"key":"ctrl+alt+shift+.","command":"editor.action.quoteListSymbols"},
+    //插入有序列表符
+    {"key":"ctrl+alt+1","command":"editor.action.orderListSymbols"},
+    //插入任务列表符
+    {"key":"ctrl+alt+[","command":"editor.action.taskListSymbols"},
+    //插入已完成任务列表符
+    {"key":"ctrl+alt+]","command":"editor.action.taskFinishListSymbols"},
+
+    //--------剪贴板--------
+    //复制
+    {"key":"command+c","command":"editor.action.clipboardCopyAction"},
+    //
+    //复制文件路径
+    {"key":"command+shift+c","command":"editor.action.clipboardCopyPathAction"},
+    //重复插入选区或当前行
+    {"key":"command+shift+r","command":"editor.action.duplicate"},
+    //剪切
+    {"key":"command+x","command":"editor.action.clipboardCutAction"},
+    //
+    //粘贴
+    {"key":"command+v","command":"editor.action.clipboardPasteAction"},
+    //
+    //粘贴为HTML
+    {"key":"command+shift+v","command":"editor.action.clipboardPasteAsHTML"},
+    //从历史粘贴板粘贴
+    {"key":"command+alt+v","command":"editor.action.clipboardPasteFromHistory"},
+    //
+    //交换选区或行。只支持2个选区或2行; 不是2个选区时, 交换光标前后的字母
+    {"key":"ctrl+t","command":"editor.action.swichSelectionOrLine"},
+    {"key":"command+shift+x","command":"editor.action.swichSelectionOrLine"},
+
+    //--------撤销--------
+    //撤销
+    {"key":"command+z","command":"undo"},
+    //重做
+    {"key":"command+y","command":"redo"},
+    {"key":"command+shift+z","command":"redo"},
+    //撤销一个新光标或选区
+    {"key":"alt+shift+z","command":"editor.action.undoSelection"},
+
+
+    //--------语言--------
+    //格式化
+    {"key":"command+k","command":"editor.action.format","when":"!activeEditor.readonly && activeEditor.canFormat"},
+    //格式化（兼容老版HBuilder快捷键）
+    //{"key":"command+shift+f","command":"editor.action.format"},
+    //合并行（反格式化）
+    {"key":"command+shift+k","command":"editor.action.joinLines"},
+    //合并行（兼容老版HBuilder快捷键）
+    // {"key":"ctrl+alt+j","command":"editor.action.joinLines"},
+    //注释/反注释
+    {"key":"command+/","command":"editor.action.commentLine"},
+    //
+    //块注释
+    {"key":"command+alt+/","command":"editor.action.blockCommentLine"},
+    //
+    //注释菜单(含条件编译注释)
+    {"key":"ctrl+alt+/","command":"editor.action.showCommentMenu"},
+    //条件编译ifdef
+    //{"key":"","command":"editor.action.CommentIfdef"},
+    //条件编译ifndef
+    //{"key":"","command":"editor.action.CommentIfndef"},
+    //验证本文档语法
+    {"key":"","command":"editor.action.validation"},
+
+    //--------包围--------
+    //包围
+    {"key":"command+]","command":"editor.action.SurroundBylanguage"},
+    //反包围
+    {"key":"command+shift+]","command":"editor.action.UnSurroundBylanguage"},
+    //代码块包围
+    {"key":"command+alt+t","command":"editor.action.CodeBlockSurroundByLanguage"},
+    //加粗（html、md生效）
+    {"key":"command+b","command":"editor.action.bold"},
+
+    //全部字母大写
+    {"key":"alt+shift+u","command":"editor.action.transformToUppercase"},
+    //全部字母小写
+    {"key":"alt+shift+l","command":"editor.action.transformToLowercase"},
+    //首字母大写
+    {"key":"alt+shift+t","command":"editor.action.transformToTitlecase"},
+
+    //激活代码助手
+    {"key":"alt+/","command":"editor.action.triggerSuggest"},
+    //
+
+    //激活方法参数提示
+    {"key":"alt+shift+/", "command":"Trigger Parameter Hints"},
+
+    //缩进
+    {"key":"tab","command":"tab"},
+    //
+    //反缩进
+    {"key":"shift+tab","command":"outdent"},
+    //
+
+    //--------选择--------
+    //全选
+    {"key":"command+a","command":"editor.action.selectAll"},
+    //向左选字
+    {"key":"shift+left","command":"cursorLeftSelect"},
+    //向右选字
+    {"key":"shift+right","command":"cursorRightSelect"},
+    //向上选行
+    {"key":"shift+up","command":"cursorUpSelect"},
+    //
+    //向下选行
+    {"key":"shift+down","command":"cursorDownSelect"},
+    //
+    //向左选词
+    {"key":"alt+shift+left","command":"cursorWordStartLeftSelect"},
+    //向右选词
+    {"key":"alt+shift+right","command":"cursorWordEndRightSelect"},
+    //向左选一个驼峰单词
+    {"key":"ctrl+shift+alt+left","command":"cursorWordPartLeftSelect"},
+    //向右选一个驼峰单词
+    {"key":"ctrl+shift+alt+right","command":"cursorWordPartRightSelect"},
+    //选至软行首（连续按依次切换自动换行的行首、缩进后的行首、真行首）
+    {"key":"command+shift+left","command":"cursorHomeSelect"},
+    //
+    //选至软行尾（连续按依次切换自动换行的行尾、真行尾）
+    {"key":"command+shift+right","command":"cursorEndSelect"},
+    //
+    //选至行首
+    {"key":"","command":"cursorHomeDirectSelect"},
+    //选至行尾
+    {"key":"","command":"cursorEndDirectSelect"},
+    //选至段落开头
+    {"key":"","command":"cursorLineStartSelect"},
+    //选至段落结尾
+    {"key":"","command":"cursorLineEndSelect"},
+    //选至上一页
+    {"key":"shift+PgUp","command":"cursorPageUpSelect"},
+    //选至下一页
+    {"key":"shift+PgDown","command":"cursorPageDownSelect"},
+    //选至文档首
+    {"key":"command+shift+up","command":"cursorTopSelect"},
+    //选至文档尾
+    {"key":"command+shift+down","command":"cursorBottomSelect"},
+    //选择当前词或下一个相同词
+    {"key":"command+d","command":"editor.action.addSelectionToNextFindMatch"},
+    //选择所有相同词
+    {"key":"ctrl+alt+d","command":"editor.action.selectAllSameWord"},
+    {"key":"alt+f3","command":"editor.action.selectAllSameWord"},
+    //跳过当前选择，选中下一个相同词
+    {"key":"ctrl+shift+d","command":"editor.action.skipSelectionAndSelectNext"},
+    //选择相同语法词
+    {"key":"command+shift+d","command":"editor.action.SelectSameWordByLan"},
+    //选择括号内字符。可用双击括号替代
+    {"key":"command+[","command":"editor.action.selectMatchBracket"},
+    //选择行。也可单击行号或三击行
+    {"key":"command+l","command":"expandLineSelection"},
+    //选择行(不含首尾空白字符)。也可双击行尾
+    {"key":"command+shift+l","command":"editor.action.selectLineNoBlankStr"},
+    //放大选区
+    {"key":"command+=","command":"editor.action.expandSelection"},
+    //向2侧扩大选择
+    {"key":"ctrl+shift+right","command":"editor.action.expandSelectionTwoSides"},
+    //由2侧向内减少选择
+    {"key":"ctrl+shift+left","command":"editor.action.narrowSelectionTwoSides"},
+    //向上列选择
+    {"key":"command+alt+up","command":"editor.action.insertCursorAbove"},
+    //向下列选择
+    {"key":"command+alt+down","command":"editor.action.insertCursorBelow"},
+    //每个选区前后设置光标
+    {"key":"command+\\","command":"editor.action.setCursorSurroundSel"},
+    //每行行首设置光标
+    {"key":"command+shift+\\","command":"editor.action.setCursorEachLine"},
+    //选择引号内字符串。可用双击引号来替代
+    //{"key":"","command":"editor.action.selectMatchQuote"},
+    //选择相同缩进的行。可用双击行首tab来替代
+    //{"key":"","command":"editor.action.selectSameIndentationLine"},
+
+    //--------查找--------
+    //查找文件
+    {"key":"command+p","command":"workbench.action.quickOpen"},
+    //
+    //查找索引符号
+    {"key":"command+shift+o","command":"actions.quickFind"},
+    //本文档内查找字符串
+    {"key":"command+f","command":"actions.find"},
+    //本文档的区域内查找字符串
+    {"key":"ctrl+shift+f","command":"actions.findinRegion"},
+    //目录内查找字符串
+    {"key":"command+shift+f","command":"workbench.action.findInFiles"},
+    //替换
+    {"key":"command+alt+f","command":"editor.action.startFindReplaceAction"},
+    //查找下一个字符串
+    {"key":"f3","command":"editor.action.nextSelectionMatchFindAction"},
+    {"key":"command+g","command":"editor.action.nextSelectionMatchFindAction"},
+    //查找上一个字符串
+    {"key":"shift+f3","command":"editor.action.previousSelectionMatchFindAction"},
+    {"key":"command+shift+g","command":"editor.action.previousSelectionMatchFindAction"},
+
+
+    //--------跳转--------
+    //光标向左
+    {"key":"ctrl+b","command":"cursorLeft"},
+    {"key":"left","command":"cursorLeft"},
+    //光标向下
+    //{"key":"ctrl+n","command":"cursorDown"},
+    {"key":"down","command":"cursorDown"},
+    //光标向上
+    //{"key":"ctrl+p","command":"cursorUp"},
+    {"key":"up","command":"cursorUp"},
+    //光标向右
+    {"key":"ctrl+f","command":"cursorRight"},
+    {"key":"right","command":"cursorRight"},
+    //光标向左一词
+    {"key":"alt+left","command":"cursorWordStartLeft"},
+    //光标向右一词
+    {"key":"alt+right","command":"cursorWordEndRight"},
+    //光标向左一个驼峰单词
+    {"key":"ctrl+alt+left","command":"cursorWordPartLeft"},
+    //光标向右一个驼峰单词
+    {"key":"ctrl+alt+right","command":"cursorWordPartRight"},
+    //光标到软行首（连续按依次切换自动换行的行首、缩进后的行首、真行首）
+    {"key":"command+left","command":"cursorHome"},
+    //
+    //光标到软行尾（连续按依次切换自动换行的行尾、真行尾）
+    {"key":"command+right","command":"cursorEnd"},
+    //
+    //光标到行首
+    {"key":"ctrl+a","command":"cursorLineStart"},
+    //光标到行尾
+    {"key":"ctrl+e","command":"cursorLineEnd"},
+    //光标到上个段落（空行为分割段落）
+    {"key":"command+alt+PgUp","command":"cursorParaUp"},
+    //光标到下个段落（空行为分割段落）
+    {"key":"command+alt+PgDown","command":"cursorParaDown"},
+    //光标到上一页
+    {"key":"PgUp","command":"cursorPageUp"},
+    //光标到下一页
+    {"key":"PgDown","command":"cursorPageDown"},
+    //光标到页首
+    {"key":"command+up","command":"cursorTop"},
+    //光标到页尾
+    {"key":"command+down","command":"cursorBottom"},
+    //转到定义
+    {"key":"alt+d","command":"workbench.action.gotoDefinition"},
+    // {"key":"f12","command":"workbench.action.gotoDefinition"},
+    //
+    //分栏转到定义
+    {"key":"alt+shift+d","command":"workbench.action.gotoDefinitionWithPane"},
+    {"key":"shift+f12","command":"workbench.action.gotoDefinitionWithPane"},
+    //跳转到行
+    {"key":"ctrl+g","command":"workbench.action.gotoLine"},
+    //跳转到配对的括号
+    {"key":"ctrl+[","command":"editor.action.jumpToBracket"},
+    //光标后退
+    {"key":"ctrl+-","command":"workbench.action.navigateBack"},
+    //
+    //光标前进
+    {"key":"ctrl+=","command":"workbench.action.navigateForward"},
+    //
+    //光标历史清空
+    //{"key":"","command":"workbench.action.clearPosHistory"},
+    //设置/取消书签
+    {"key":"command+f2","command":"workbench.action.toggleBookmark"},
+    //下一个书签（光标在编辑器区域）
+    {"key":"f2","command":"workbench.action.nextBookmark"},
+    //上一个书签（光标在编辑器区域）
+    {"key":"shift+f2","command":"workbench.action.prevBookmark"},
+    //清除所有书签
+    {"key":"command+shift+f2","command":"workbench.action.clearBookmarks"},
+    //下一个验证错误
+    {"key":"f4","command":"workbench.action.nextError"},
+    //上一个验证错误
+    {"key":"shift+f4","command":"workbench.action.prevError"},
+    //折叠单行
+    {"key":"alt+-","command":"workbench.action.foldLineContract"},
+    //展开单行
+    {"key":"alt+=","command":"workbench.action.foldLineExpand"},
+    //
+    //折叠子行
+    {"key":"alt+shift+-","command":"workbench.action.foldChildrenContract"},
+    //展开子行
+    {"key":"alt+shift+=","command":"workbench.action.foldChildrenExpand"},
+    //折叠所有行
+    {"key":"alt+command+shift+-","command":"workbench.action.foldAllContract"},
+    //展开所有行
+    {"key":"alt+command+shift+=","command":"workbench.action.foldAllExpand"},
+    //
+    //折叠其他区域
+    {"key":"alt+shift+o","command":"workbench.action.foldContractOther"},
+    //转到Page.json（在uni-app的page页面可快速转到Page.json里对应的节点）
+    //{"key":"","command":"workbench.action.openPageJsonFile"},
+
+
+    //--------视图--------
+    //置焦到编辑器区域
+    {"key":"ctrl+n","command":"workbench.action.focusEditor"},
+    //置焦到项目管理器
+    {"key":"ctrl+shift+q","command":"workbench.view.explorer"},
+    //显示/隐藏项目管理器
+    {"key":"ctrl+q","command":"workbench.action.toggleSidebarVisibility"},
+    //显示/隐藏控制台
+    {"key":"ctrl+x","command":"workbench.debug.action.toggleRepl"},
+    //显示/隐藏终端
+    {"key":"ctrl+shift+c","command":"workbench.action.tiggleTerminal"},
+    //显示/隐藏工具栏
+    {"key":"","command":"workbench.action.toggleToolbarVisibility"},
+    //显示/隐藏内置浏览器
+    {"key":"ctrl+p","command":"workbench.action.togglePreviewBrowserVisibility"},
+    //显示/隐藏AI Code Chat
+    {"key":"command+alt+i","command":"workbench.action.toggleAiChatVisibility"},
+    //显示/隐藏迷你地图
+    {"key":"ctrl+o","command":"editor.action.toggleMinimap"},
+    //显示/隐藏大纲
+    {"key":"ctrl+w","command":"editor.action.triggerOutline"},
+    //显示/隐藏状态栏
+    //{"key":"","command":"workbench.action.toggleStatusbarVisibility"},
+    //增大字体【command+鼠标滚动向上】
+    {"key":"command+shift+=","command":"workbench.action.zoomIn"},
+    //
+    //减小字体【command+鼠标滚动向下】
+    {"key":"command+shift+-","command":"workbench.action.zoomOut"},
+    //
+    //免打扰模式
+    {"key":"command+ctrl+f","command":"workbench.action.distanceFreeMode"},
+    //单栏
+    {"key":"alt+shift+1","command":"workbench.action.split1e"},
+    //左右2栏
+    {"key":"alt+shift+2","command":"workbench.action.split2e"},
+    //左右3栏
+    {"key":"alt+shift+3","command":"workbench.action.split3e"},
+    //四宫格
+    // {"key":"alt+shift+5","command":"workbench.action.split4grid"},
+    //置焦到下一个分栏
+    {"key":"alt+.","command":"workbench.action.nextpane"},
+    //置焦到上一个分栏
+    {"key":"alt+,","command":"workbench.action.prevpane"},
+    //全屏
+    // {"key":"ctrl+alt+f","command":"workbench.action.toggleFullScreen"},
+    //切换是否自动换行
+    //{"key":"","command":"editor.action.toggleWordWrap"},
+    //显示/隐藏行号
+    //{"key":"","command":"editor.action.toggleRenderLineNumber"},
+    //显示/隐藏缩进线
+    //{"key":"","command":"editor.action.toggleRenderIndentReference"},
+    //显示/隐藏空白字符
+    //{"key":"","command":"editor.action.toggleRenderWhitespace"},
+    //在项目管理器中追踪/不追踪当前文件位置
+    //{"key":"","command":"editor.action.revealInProjectExplorer"},
+    //新建HBuilder窗体
+    {"key":"command+shift+n","command":"workbench.action.newWindow"},
+    //
+    //最小化
+    {"key":"command+m","command":"workbench.action.minimize"},
+    {"key":"command+option+m","command":"workbench.action.minimize"},
+    //多窗口切换快捷键
+    {"key":"command+f6","command":"workbench.action.switchWindow"},
+    //{"key":"alt+`","command":"workbench.action.switchWindow"},
+
+    //--------运行--------
+    //运行
+    {"key":"command+r","command":"app.action.rundevice"},
+    //重新运行
+    {"key":"command+f5","command":"workbench.action.debug.restart","when":"isDebugConsoleViewVisible"},
+    //停止运行
+    {"key":"command+shift+f5","command":"workbench.action.debug.stop","when":"isRunning"},
+
+    //--------发行--------
+    //快捷发行菜单
+    {"key":"command+u","command":"workbench.action.showPubMenu"},
+    //App云打包
+    //{"key":"","command":"project.action.app.pack"},
+    //uni-app生成H5网站
+    //{"key":"","command": "project.action.app.publish.html5"},
+    //uni-app发布到微信小程序
+    //{"key":"","command": "project.action.app.publish.weapp"},
+    //uni-app发布到百度小程序
+    //{"key":"","command": "project.action.app.publish.baiduapp"},
+    //uni-app发布到支付宝小程序
+    //{"key":"","command": "project.action.app.publish.alipayapp"},
+    //uni-app发布到抖音小程序
+    //{"key":"","command": "project.action.app.publish.bytedanceapp"},
+    //uni-app发布到QQ小程序
+    //{"key":"","command": "project.action.app.publish.qqapp"},
+
+    //--------工具--------
+    //本地历史记录
+    {"key":"command+shift+h","command":"workbench.action.files.localHistory"},
+
+    //--------帮助--------
+    //重新加载代码块
+    //{"key":"","command":"workbench.action.reloadSnippets"},
+    //打开设置
+    {"key":"command+,","command":"workbench.action.openGlobalSettings"},
+    //打开快捷键设置
+    //{"key":"","command":"workbench.action.openGlobalKeybindings"},
+    //打开外部命令设置
+    //{"key":"","command":"workbench.action.openGlobalExternalcommands"},
+    //显示日志文件
+    //{"key":"","command":"workbench.action.openlog"},
+    //反馈
+    //{"key":"","command":"workbench.action.feedback"},
+    //显示更新日志
+    //{"key":"","command":"update.showCurrentReleaseNotes"},
+    //检查更新
+    //{"key":"","command":"update.checkForUpdate"},
+    //自动更新
+    //{"key":"","command":"workbench.action.autoUpdate"},
+
+    //--------底部控制台--------
+    //清空控制台
+    //{"key":"","command":"workbench.console.action.clearLog"},
+    //锁定滚动条
+    //{"key":"","command":"workbench.console.action.lock"},
+    //全选
+    //{"key":"","command":"workbench.console.action.selectAll"},
+    //复制
+    //{"key":"","command":"workbench.console.action.copy"},
+
+    //--------外部命令/插件部分（需要安装对应插件）--------
+    //文件对比，与最近一次提交比较
+    //{"key":"","command":"file.compareWithLastVersion"},
+    //查看指定svn或git文件的提交信息
+    //{"key":"","command":"file.showlog"},
+    //svg或git文件提交
+    //{"key":"","command":"files.commit"},
+
+    //--------svn插件部分--------
+    //svn更新
+    //{"key":"","command":"ExternalCommand:SVN_UPDATE"},
+    //svn提交
+    //{"key":"","command":"ExternalCommand:SVN_COMMIT"},
+    //svn检查修改内容
+    //{"key":"","command":"ExternalCommand:SVN_REPOSTATUS"},
+    //svn查看日志
+    //{"key":"","command":"ExternalCommand:SVN_LOG"},
+    //svn增加文件(单个文件)
+    //{"key":"","command":"ExternalCommand:SVN_ADD"},
+    //svn删除当前文件(单个文件)
+    //{"key":"","command":"ExternalCommand:SVN_REMOVE"},
+    //svn还原(revert)
+    //{"key":"","command":"ExternalCommand:SVN_REVERT"},
+
+    //--------git插件部分--------
+    //git拉取(pull)
+    //{"key":"","command":"ExternalCommand:GIT_PULL"},
+    //git推送
+    //{"key":"","command":"ExternalCommand:GIT_PUSH"},
+    //git提交
+    //{"key":"","command":"ExternalCommand:GIT_COMMIT"},
+    //git比较差异
+    //{"key":"","command":"ExternalCommand:GIT_DIFF"},
+    //git检查修改内容
+    //{"key":"","command":"ExternalCommand:GIT_REPOSTATUS"},
+    //git查看日志
+    //{"key":"","command":"ExternalCommand:GIT_LOG"},
+    //git删除当前文件(单个文件)
+    //{"key":"","command":"ExternalCommand:GIT_REMOVE"},
+    //git增加文件(单个文件)
+    //{"key":"","command":"ExternalCommand:GIT_ADD"},
+    //git切换分支
+    //{"key":"","command":"ExternalCommand:GIT_CHECKOUT_BRANCH"},
+    //git文件状态
+    //{"key":"","command":"ExternalCommand:GIT_STATUS"},
+    //git还原(revert)
+    //{"key":"","command":"ExternalCommand:GIT_REVERT"},
+    //git还原(reset)
+    //{"key":"","command":"ExternalCommand:GIT_RESET"}
+
+    //--------调试相关快捷键--------
+    //设置快捷键, 用于设置/取消断点
+    {"key":"f9","command":"editor.debug.action.toggleBreakpoint"},
+    //单步执行
+    {"key":"f10","command":"debug.action.stepover", "when":"debugState=='paused'"},
+    //单步进入
+    {"key":"f11","command":"debug.action.stepin", "when":"debugState=='paused'"},
+    //单步退出
+    {"key":"shift+f11","command":"debug.action.stepout", "when":"debugState=='paused'"},
+    //继续
+    {"key":"f8","command":"debug.action.continue", "when":"debugState=='paused'"},
+    //暂停
+    {"key":"f8","command":"debug.action.pause", "when":"debugState=='running'"},
+
+    //--------设置快捷键，用于查找所有引用--------
+    {"key":"shift+alt+g","command":"workbench.action.gotoreference"},
+
+    //--------设置快捷键，用于重命名符号--------
+    {"key":"ctrl+alt+r","command":"workbench.action.rename"},
+
+    //激活虚拟行
+    {"key":"command+alt+\\","command":"editor.action.inlineSuggest.trigger"},
+    //设置项搜索
+    {"key":"alt+shift+,","command":"workbench.action.findInConfigurations"},
+    
+    //--------linediffPreview相关的快捷键--------
+    //拒绝当前修改
+    {"key":"","command":"editor.action.linediff.rejectCurrent", "when":"linediffActive"},
+    //接受当前修改
+    {"key":"","command":"editor.action.linediff.acceptCurrent", "when":"linediffActive"},
+    //预览上一修改
+    {"key":"","command":"editor.action.linediff.prevResult", "when":"linediffActive"},
+    //预览下一修改
+    {"key":"","command":"editor.action.linediff.nextResult", "when":"linediffActive"},
+    //拒绝本文件的修改
+    {"key":"","command":"editor.action.linediff.rejectAll", "when":"linediffActive"},
+    //接受本文件的修改
+    {"key":"","command":"editor.action.linediff.acceptAll", "when":"linediffActive"},
+    //预览下一修改文件
+    {"key":"","command":"editor.action.linediff.prevFile", "when":"linediffActive"},
+    //预览上一修改文件
+    {"key":"","command":"editor.action.linediff.nextFile", "when":"linediffActive"}
+
+    //--------以下为鼠标配合快捷键说明，不可自定义--------
+    //command        +左键单击       添加多光标
+    //command        +右键单击       删除多光标
+    //command        +左键拖选       添加多选区
+    //command        +左键双击       如果点击到了智能双击区域比如if块，会添加到选区里
+    //alt            +左键单击       转到定义/打开链接
+    //alt+ctrl       +左键单击       分栏转到定义/打开链接
+    //alt            +左键拖选       列选择
+    //command        +滚轮           缩放字体
+    //alt            +滚轮           横向滚动
+    //shift          +滚轮           垂直滚动一屏
+    //command+alt    +滚轮           横向滚动一屏
+]

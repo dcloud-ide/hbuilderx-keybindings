@@ -70,3 +70,4 @@
 ## 兼容性
 
 - VS Code `^1.129.0`（含 HBuilderV，作为内置插件提供）
+- Windows / Linux / macOS：按平台提供 HBuilderX 对应键位（macOS 为 HBuilderX mac 版 `⌘` 系方案）
