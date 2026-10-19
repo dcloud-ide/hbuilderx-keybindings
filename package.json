@@ -7,6 +7,14 @@
 	"author": "dcloud-ide",
 	"publisher": "dcloud-ide",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dcloud-ide/hbuilderx-keybindings.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dcloud-ide/hbuilderx-keybindings/issues"
+	},
+	"homepage": "https://github.com/dcloud-ide/hbuilderx-keybindings#readme",
 	"icon": "icons/icon.png",
 	"engines": {
 		"vscode": "^1.129.0"
@@ -419,6 +427,6 @@
 		]
 	},
 	"scripts": {
-		"package": "npx --yes vsce package --allow-missing-repository --no-rewrite-relative-links --out dist/"
+		"package": "npx --yes vsce package --no-rewrite-relative-links --out dist/"
 	}
 }
