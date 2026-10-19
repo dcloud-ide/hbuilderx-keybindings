@@ -439,6 +439,9 @@
 		]
 	},
 	"scripts": {
-		"package": "npx --yes vsce package --no-rewrite-relative-links --out dist/"
+		"package": "node scripts/package.js"
+	},
+	"devDependencies": {
+		"@vscode/vsce": "^4.0.0"
 	}
 }
