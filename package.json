@@ -1,0 +1,432 @@
+{
+	"name": "hbuilderx-keymap",
+	"private": true,
+	"version": "1.0.0",
+	"displayName": "%displayName%",
+	"description": "%description%",
+	"author": "dcloud-ide",
+	"publisher": "dcloud-ide",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dcloud-ide/hbuilderx-keybindings.git"
+	},
+	"bugs": {
+		"url": "https://github.com/dcloud-ide/hbuilderx-keybindings/issues"
+	},
+	"homepage": "https://github.com/dcloud-ide/hbuilderx-keybindings#readme",
+	"icon": "icons/icon.png",
+	"engines": {
+		"vscode": "^1.129.0"
+	},
+	"categories": [
+		"Keymaps"
+	],
+	"contributes": {
+		"keybindings": [
+			{
+				"key": "ctrl+t",
+				"command": "workbench.action.files.newUntitledFile"
+			},
+			{
+				"key": "ctrl+shift+w",
+				"command": "workbench.action.closeAllEditors"
+			},
+			{
+				"key": "ctrl+q",
+				"command": "workbench.action.closeOtherEditors"
+			},
+			{
+				"key": "ctrl+PageUp",
+				"command": "workbench.action.previousEditorInGroup"
+			},
+			{
+				"key": "ctrl+PageDown",
+				"command": "workbench.action.nextEditorInGroup"
+			},
+			{
+				"key": "ctrl+n",
+				"command": "workbench.action.files.newFile"
+			},
+			{
+				"key": "ctrl+alt+s",
+				"command": "workbench.action.files.saveAll"
+			},
+			{
+				"key": "ctrl+up",
+				"command": "editor.action.moveLinesUpAction",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+down",
+				"command": "editor.action.moveLinesDownAction",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "shift+backspace",
+				"command": "deleteAllLeft",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "shift+delete",
+				"command": "deleteAllRight",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+d",
+				"command": "editor.action.deleteLines"
+			},
+			{
+				"key": "ctrl+shift+c",
+				"command": "workbench.action.files.copyPathOfActiveFile",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+r",
+				"command": "editor.action.copyLinesDownAction",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+v",
+				"command": "editor.action.pasteAs",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+z",
+				"command": "cursorUndo",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+k",
+				"command": "editor.action.formatDocument",
+				"when": "editorTextFocus && !editorReadonly"
+			},
+			{
+				"key": "ctrl+shift+k",
+				"command": "editor.action.joinLines",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+alt+j",
+				"command": "editor.action.joinLines",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+/",
+				"command": "editor.action.blockComment",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+]",
+				"command": "editor.emmet.action.wrapWithAbbreviation",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+b",
+				"command": "editor.action.insertSnippet",
+				"args": {
+					"snippet": "**${TM_SELECTED_TEXT}**"
+				},
+				"when": "editorTextFocus && editorLangId == 'markdown'"
+			},
+			{
+				"key": "ctrl+b",
+				"command": "editor.action.insertSnippet",
+				"args": {
+					"snippet": "<b>${TM_SELECTED_TEXT}</b>"
+				},
+				"when": "editorTextFocus && (editorLangId == 'html' || editorLangId == 'vue')"
+			},
+			{
+				"key": "alt+shift+u",
+				"command": "editor.action.transformToUppercase",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+l",
+				"command": "editor.action.transformToLowercase",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+t",
+				"command": "editor.action.transformToTitlecase",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+/",
+				"command": "editor.action.triggerSuggest",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+/",
+				"command": "editor.action.triggerParameterHints",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+e",
+				"command": "editor.action.addSelectionToNextFindMatch",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+alt+e",
+				"command": "editor.action.selectHighlights",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+f3",
+				"command": "editor.action.selectHighlights",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+e",
+				"command": "editor.action.moveSelectionToNextFindMatch",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+e",
+				"command": "editor.action.changeAll",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+[",
+				"command": "editor.action.selectToBracket",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+=",
+				"command": "editor.action.smartSelect.expand",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+shift+f",
+				"command": "editor.actions.findWithArgs",
+				"args": {
+					"findInSelection": true
+				},
+				"when": "editorFocus"
+			},
+			{
+				"key": "ctrl+alt+f",
+				"command": "workbench.action.findInFiles"
+			},
+			{
+				"key": "f3",
+				"command": "editor.action.nextSelectionMatchFindAction",
+				"when": "editorFocus"
+			},
+			{
+				"key": "shift+f3",
+				"command": "editor.action.previousSelectionMatchFindAction",
+				"when": "editorFocus"
+			},
+			{
+				"key": "alt+h",
+				"command": "cursorLeft",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+j",
+				"command": "cursorDown",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+k",
+				"command": "cursorUp",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+l",
+				"command": "cursorRight",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+alt+left",
+				"command": "cursorWordPartLeft",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+alt+right",
+				"command": "cursorWordPartRight",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+d",
+				"command": "editor.action.revealDefinition",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+d",
+				"command": "editor.action.revealDefinitionAside",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "shift+f12",
+				"command": "editor.action.revealDefinitionAside",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+[",
+				"command": "editor.action.jumpToBracket",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "f4",
+				"command": "editor.action.marker.nextInFiles"
+			},
+			{
+				"key": "shift+f4",
+				"command": "editor.action.marker.prevInFiles"
+			},
+			{
+				"key": "alt+-",
+				"command": "editor.fold",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+=",
+				"command": "editor.unfold",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+-",
+				"command": "editor.foldRecursively",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+=",
+				"command": "editor.unfoldRecursively",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+ctrl+shift+-",
+				"command": "editor.foldAll",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+ctrl+shift+=",
+				"command": "editor.unfoldAll",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+o",
+				"command": "editor.foldAllExcept",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+n",
+				"command": "workbench.action.focusActiveEditorGroup"
+			},
+			{
+				"key": "alt+shift+q",
+				"command": "workbench.view.explorer"
+			},
+			{
+				"key": "alt+q",
+				"command": "workbench.action.toggleSidebarVisibility"
+			},
+			{
+				"key": "alt+x",
+				"command": "workbench.debug.action.toggleRepl"
+			},
+			{
+				"key": "alt+c",
+				"command": "workbench.action.terminal.toggleTerminal"
+			},
+			{
+				"key": "alt+p",
+				"command": "simpleBrowser.show"
+			},
+			{
+				"key": "alt+o",
+				"command": "editor.action.toggleMinimap",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+w",
+				"command": "outline.focus"
+			},
+			{
+				"key": "f11",
+				"command": "workbench.action.toggleZenMode"
+			},
+			{
+				"key": "alt+shift+1",
+				"command": "workbench.action.editorLayoutSingle"
+			},
+			{
+				"key": "alt+shift+2",
+				"command": "workbench.action.editorLayoutTwoColumns"
+			},
+			{
+				"key": "alt+shift+3",
+				"command": "workbench.action.editorLayoutThreeColumns"
+			},
+			{
+				"key": "alt+.",
+				"command": "workbench.action.focusNextGroup"
+			},
+			{
+				"key": "alt+,",
+				"command": "workbench.action.focusPreviousGroup"
+			},
+			{
+				"key": "ctrl+f6",
+				"command": "workbench.action.switchWindow"
+			},
+			{
+				"key": "alt+`",
+				"command": "workbench.action.switchWindow"
+			},
+			{
+				"key": "ctrl+f5",
+				"command": "workbench.action.debug.restart",
+				"when": "inDebugMode"
+			},
+			{
+				"key": "ctrl+shift+f5",
+				"command": "workbench.action.debug.stop",
+				"when": "inDebugMode"
+			},
+			{
+				"key": "ctrl+shift+h",
+				"command": "workbench.action.localHistory.restoreViaPicker"
+			},
+			{
+				"key": "ctrl+alt+,",
+				"command": "workbench.action.openGlobalSettings"
+			},
+			{
+				"key": "f8",
+				"command": "workbench.action.debug.continue",
+				"when": "debugState == 'stopped'"
+			},
+			{
+				"key": "f8",
+				"command": "workbench.action.debug.pause",
+				"when": "debugState == 'running'"
+			},
+			{
+				"key": "shift+alt+g",
+				"command": "editor.action.goToReferences",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+alt+r",
+				"command": "editor.action.rename",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "ctrl+alt+\\",
+				"command": "editor.action.inlineSuggest.trigger",
+				"when": "editorTextFocus"
+			},
+			{
+				"key": "alt+shift+,",
+				"command": "workbench.action.openSettings"
+			}
+		]
+	},
+	"scripts": {
+		"package": "npx --yes vsce package --no-rewrite-relative-links --out dist/"
+	}
+}
