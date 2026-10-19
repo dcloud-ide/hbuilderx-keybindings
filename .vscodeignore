@@ -4,6 +4,7 @@ src/**
 test/**
 out/**
 lib/**
+scripts/**
 dist/
 tsconfig.json
 esbuild.mts
