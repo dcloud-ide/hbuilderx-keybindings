@@ -1,0 +1,10 @@
+.vscode/**
+.hbuilderv/**
+src/**
+test/**
+out/**
+lib/**
+dist/
+tsconfig.json
+esbuild.mts
+.gitignore

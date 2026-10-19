@@ -1,0 +1,28 @@
+<!--
+  插件图标源文件（256x256）。
+  注意：VS Code 扩展的 package.json icon 字段只支持 PNG，
+  修改本文件后需重新生成 icons/icon.png（256x256）。
+  设计：HBuilderX 品牌绿底 + 大 H（HBuilderX 标志，主体）+ 下方小键盘（keymap）。
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- 背景：HBuilderX 品牌绿圆角方块 -->
+  <rect x="0" y="0" width="256" height="256" rx="48" fill="#22A24A" />
+  <!-- 大 H（HBuilderX 标志，主体） -->
+  <g fill="#ffffff">
+    <rect x="74" y="40" width="30" height="112" />
+    <rect x="152" y="40" width="30" height="112" />
+    <rect x="74" y="81" width="108" height="30" />
+  </g>
+  <!-- 小键盘（keymap）：外框 + 键帽 -->
+  <rect x="58" y="166" width="140" height="50" rx="12" fill="none" stroke="#ffffff" stroke-width="8" />
+  <g fill="#ffffff">
+    <rect x="73" y="177" width="18" height="12" rx="3" />
+    <rect x="96" y="177" width="18" height="12" rx="3" />
+    <rect x="119" y="177" width="18" height="12" rx="3" />
+    <rect x="142" y="177" width="18" height="12" rx="3" />
+    <rect x="165" y="177" width="18" height="12" rx="3" />
+    <rect x="65" y="194" width="50" height="12" rx="3" />
+    <rect x="120" y="194" width="18" height="12" rx="3" />
+    <rect x="143" y="194" width="40" height="12" rx="3" />
+  </g>
+</svg>
