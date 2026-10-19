@@ -60,36 +60,36 @@
 			{
 				"key": "ctrl+up",
 				"command": "editor.action.moveLinesUpAction",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+down",
 				"command": "editor.action.moveLinesDownAction",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "shift+backspace",
 				"command": "deleteAllLeft",
-				"when": "editorTextFocus"
+				"when": "textInputFocus && !editorReadonly"
 			},
 			{
 				"key": "shift+delete",
 				"command": "deleteAllRight",
-				"when": "editorTextFocus"
+				"when": "textInputFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+d",
-				"command": "editor.action.deleteLines"
+				"command": "editor.action.deleteLines",
+				"when": "textInputFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+shift+c",
-				"command": "workbench.action.files.copyPathOfActiveFile",
-				"when": "editorTextFocus"
+				"command": "workbench.action.files.copyPathOfActiveFile"
 			},
 			{
 				"key": "ctrl+shift+r",
 				"command": "editor.action.copyLinesDownAction",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+shift+v",
@@ -99,27 +99,27 @@
 			{
 				"key": "alt+shift+z",
 				"command": "cursorUndo",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "ctrl+k",
 				"command": "editor.action.formatDocument",
-				"when": "editorTextFocus && !editorReadonly"
+				"when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
 			},
 			{
 				"key": "ctrl+shift+k",
 				"command": "editor.action.joinLines",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+alt+j",
 				"command": "editor.action.joinLines",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+shift+/",
 				"command": "editor.action.blockComment",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+]",
@@ -160,37 +160,37 @@
 			{
 				"key": "alt+/",
 				"command": "editor.action.triggerSuggest",
-				"when": "editorTextFocus"
+				"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
 			},
 			{
 				"key": "alt+shift+/",
 				"command": "editor.action.triggerParameterHints",
-				"when": "editorTextFocus"
+				"when": "editorHasSignatureHelpProvider && editorTextFocus"
 			},
 			{
 				"key": "ctrl+e",
 				"command": "editor.action.addSelectionToNextFindMatch",
-				"when": "editorTextFocus"
+				"when": "editorFocus"
 			},
 			{
 				"key": "ctrl+alt+e",
 				"command": "editor.action.selectHighlights",
-				"when": "editorTextFocus"
+				"when": "editorFocus"
 			},
 			{
 				"key": "alt+f3",
 				"command": "editor.action.selectHighlights",
-				"when": "editorTextFocus"
+				"when": "editorFocus"
 			},
 			{
 				"key": "alt+shift+e",
 				"command": "editor.action.moveSelectionToNextFindMatch",
-				"when": "editorTextFocus"
+				"when": "editorFocus"
 			},
 			{
 				"key": "ctrl+shift+e",
 				"command": "editor.action.changeAll",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+[",
@@ -212,7 +212,8 @@
 			},
 			{
 				"key": "ctrl+alt+f",
-				"command": "workbench.action.findInFiles"
+				"command": "workbench.action.findInFiles",
+				"when": "!isSessionsWindow"
 			},
 			{
 				"key": "f3",
@@ -227,47 +228,47 @@
 			{
 				"key": "alt+h",
 				"command": "cursorLeft",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "alt+j",
 				"command": "cursorDown",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "alt+k",
 				"command": "cursorUp",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "alt+l",
 				"command": "cursorRight",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "ctrl+alt+left",
 				"command": "cursorWordPartLeft",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "ctrl+alt+right",
 				"command": "cursorWordPartRight",
-				"when": "editorTextFocus"
+				"when": "textInputFocus"
 			},
 			{
 				"key": "alt+d",
 				"command": "editor.action.revealDefinition",
-				"when": "editorTextFocus"
+				"when": "editorHasDefinitionProvider && editorTextFocus"
 			},
 			{
 				"key": "alt+shift+d",
 				"command": "editor.action.revealDefinitionAside",
-				"when": "editorTextFocus"
+				"when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
 			},
 			{
 				"key": "shift+f12",
 				"command": "editor.action.revealDefinitionAside",
-				"when": "editorTextFocus"
+				"when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
 			},
 			{
 				"key": "alt+[",
@@ -276,46 +277,48 @@
 			},
 			{
 				"key": "f4",
-				"command": "editor.action.marker.nextInFiles"
+				"command": "editor.action.marker.nextInFiles",
+				"when": "editorFocus"
 			},
 			{
 				"key": "shift+f4",
-				"command": "editor.action.marker.prevInFiles"
+				"command": "editor.action.marker.prevInFiles",
+				"when": "editorFocus"
 			},
 			{
 				"key": "alt+-",
 				"command": "editor.fold",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+=",
 				"command": "editor.unfold",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+shift+-",
 				"command": "editor.foldRecursively",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+shift+=",
 				"command": "editor.unfoldRecursively",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+ctrl+shift+-",
 				"command": "editor.foldAll",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+ctrl+shift+=",
 				"command": "editor.unfoldAll",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+shift+o",
 				"command": "editor.foldAllExcept",
-				"when": "editorTextFocus"
+				"when": "editorTextFocus && foldingEnabled"
 			},
 			{
 				"key": "alt+n",
@@ -323,7 +326,8 @@
 			},
 			{
 				"key": "alt+shift+q",
-				"command": "workbench.view.explorer"
+				"command": "workbench.view.explorer",
+				"when": "viewContainer.workbench.view.explorer.enabled"
 			},
 			{
 				"key": "alt+q",
@@ -331,11 +335,13 @@
 			},
 			{
 				"key": "alt+x",
-				"command": "workbench.debug.action.toggleRepl"
+				"command": "workbench.debug.action.toggleRepl",
+				"when": "workbench.panel.repl.view.active"
 			},
 			{
 				"key": "alt+c",
-				"command": "workbench.action.terminal.toggleTerminal"
+				"command": "workbench.action.terminal.toggleTerminal",
+				"when": "terminal.active"
 			},
 			{
 				"key": "alt+p",
@@ -352,7 +358,8 @@
 			},
 			{
 				"key": "f11",
-				"command": "workbench.action.toggleZenMode"
+				"command": "workbench.action.toggleZenMode",
+				"when": "!isAuxiliaryWindowFocusedContext"
 			},
 			{
 				"key": "alt+shift+1",
@@ -390,7 +397,7 @@
 			{
 				"key": "ctrl+shift+f5",
 				"command": "workbench.action.debug.stop",
-				"when": "inDebugMode"
+				"when": "inDebugMode && !focusedSessionIsAttach"
 			},
 			{
 				"key": "ctrl+shift+h",
@@ -413,12 +420,12 @@
 			{
 				"key": "shift+alt+g",
 				"command": "editor.action.goToReferences",
-				"when": "editorTextFocus"
+				"when": "editorHasReferenceProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor"
 			},
 			{
 				"key": "ctrl+alt+r",
 				"command": "editor.action.rename",
-				"when": "editorTextFocus"
+				"when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
 			},
 			{
 				"key": "ctrl+alt+\\",
