@@ -70,3 +70,4 @@ The complete keybinding list (including keybindings identical to VS Code default
 ## Compatibility
 
 - VS Code `^1.129.0` (including HBuilderV, shipped as a built-in extension)
+- Windows / macOS: keybindings follow the HBuilderX keymap (macOS uses the `⌘`-based scheme); Linux gets no keybindings, so VS Code defaults apply
