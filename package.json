@@ -1,6 +1,5 @@
 {
-	"name": "hbuilderx-keymap",
-	"private": true,
+	"name": "hbuilderx-keybindings",
 	"version": "1.0.0",
 	"displayName": "%displayName%",
 	"description": "%description%",
@@ -21,6 +20,12 @@
 	},
 	"categories": [
 		"Keymaps"
+	],
+	"keywords": [
+		"hbuilderx",
+		"keymap",
+		"keybindings",
+		"shortcuts"
 	],
 	"contributes": {
 		"keybindings": [
